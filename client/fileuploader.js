@@ -1594,7 +1594,7 @@ qq.extend(qq.UploadHandlerXhr.prototype, {
                 response = eval("(" + xhr.responseText + ")");
             }
         } catch(err){
-            response = {success: false, text: xhr.responseText};
+            response = {success: false, text: xhr.responseText};// For no JSON response (ONLY xml), please give response text to onComplete.
         }
         if (xhr.status !== 200){
             this._options.onError(id, name, "XHR returned response code " + xhr.status);
